@@ -1,0 +1,30 @@
+using System;
+using System.ComponentModel.DataAnnotations;
+
+namespace ApartmentApi.Models
+{
+    public class PendingUser
+    {
+        [Key]
+        public int Id { get; set; }
+
+        [Required]
+        public string Name { get; set; } = string.Empty;
+
+        [Required]
+        [EmailAddress]
+        public string Email { get; set; } = string.Empty;
+
+        [Required]
+        public string Phone { get; set; } = string.Empty;
+
+        [Required]
+        public string PasswordHash { get; set; } = string.Empty;
+
+        [Required]
+        public string OtpCode { get; set; } = string.Empty;
+
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime ExpiresAt { get; set; } = DateTime.UtcNow.AddMinutes(10);
+    }
+}
